@@ -1,6 +1,5 @@
 
 
-git```html
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -9,17 +8,13 @@ git```html
     <title>你的姓名 - 個人履歷</title>
     <style>
         :root {
-            --main-color: #2c3e50;     /* 深藍灰 */
-            --accent-color: #3498db;   /* 亮藍 */
+            --main-color: #2c3e50;
+            --accent-color: #3498db;
             --light-bg: #ecf0f1;
             --text: #2c3e50;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: "微軟正黑體", "Microsoft JhengHei", Arial, sans-serif;
@@ -48,8 +43,19 @@ git```html
         header {
             background: linear-gradient(120deg, var(--main-color), #34495e);
             color: white;
-            padding: 40px 30px;
+            padding: 50px 30px 40px;
             text-align: center;
+            position: relative;
+        }
+        
+        .photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid rgba(255,255,255,0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
         }
         
         header h1 {
@@ -63,14 +69,14 @@ git```html
         }
         
         .contact-info {
-            margin-top: 20px;
+            margin-top: 25px;
             font-size: 1.1em;
         }
         
         .contact-info a {
             color: #fff;
             text-decoration: none;
-            margin: 0 12px;
+            margin: 0 15px;
         }
         
         .contact-info a:hover {
@@ -162,13 +168,9 @@ git```html
         
         @media print {
             body { background: white; }
-            .print-btn, .no-print { display: none !important; }
-            .container { box-shadow: none; }
-        }
-        
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.2em; }
-            main { padding: 20px; }
+            .print-btn { display: none !important; }
+            .container { box-shadow: none; margin: 0 auto; }
+            header { padding: 40px 30px 30px; }
         }
     </style>
 </head>
@@ -176,28 +178,29 @@ git```html
 
     <div class="container">
         <header>
+            <!-- 把你的照片命名為 photo.jpg 放在同資料夾即可 -->
+            <img src="photo.jpeg" alt="個人照片" class="photo">
             <h1>吳梓銘</h1>
-            <p>亞洲大學 財務金融學系 一年級</p>
+            <p>亞洲大學 財務金融學系 四年級</p>
             <div class="contact-info">
-                <a href="mailto:your.email@asia.edu.tw">✉️ xchocolate8x@gmail.com</a> |
-                <a href="https://line.me/ti/p/yourlineid" target="_blank">🆔 LINE：yourlineid</a> |
-                <a href="https://www.linkedin.com/in/yourprofile" target="_blank">💼 LinkedIn</a>
+               
+                <a href="mailto:your.email@asia.edu.tw">your.email@asia.edu.tw</a> |
+                <a href="https://line.me/ti/p/yourlineid" target="_blank">LINE：yourlineid</a> |
+                <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
             </div>
         </header>
 
         <main>
-            <!-- 求職目標 -->
             <section>
                 <h2>求職目標</h2>
                 <p>渴望進入金融業或企業財務領域，期望運用校內所學的財務分析、投資學、會計學等專業知識，結合實習經驗，為公司創造價值，並持續成長為優秀的財務金融專業人才。</p>
             </section>
 
-            <!-- 學歷 -->
             <section>
                 <h2>學歷</h2>
                 <div class="experience-item">
                     <h3>亞洲大學 財務金融學系</h3>
-                    <span>2022.09 – 2026.06（預計）</span>
+                    <span>2022.09 – 2026.06（預計畢業）</span>
                     <ul>
                         <li>GPA：3.8/4.3（前10%）</li>
                         <li>獎學金：連續三年書院獎學金</li>
@@ -206,9 +209,8 @@ git```html
                 </div>
             </section>
 
-            <!-- 實習與經驗 -->
             <section>
-                <h2>實習與專案經驗</h2>
+                <h2>實習與經驗</h2>
                 <div class="experience-item">
                     <h3>國泰世華銀行 財富管理實習生</h3>
                     <span>2025.07 – 2025.08</span>
@@ -228,12 +230,11 @@ git```html
                 </div>
             </section>
 
-            <!-- 專業技能 -->
             <section>
                 <h2>專業技能</h2>
                 <div class="skills">
                     <span class="skill-tag">財務報表分析</span>
-                    <span class="skill-tag">Excel 進階（樞析、VBA）</span>
+                    <span class="skill-tag">Excel 進階（樞紐分析表、VBA）</span>
                     <span class="skill-tag">Python 金融資料分析</span>
                     <span class="skill-tag">Bloomberg Terminal</span>
                     <span class="skill-tag">證券分析師初階</span>
@@ -243,7 +244,6 @@ git```html
                 </div>
             </section>
 
-            <!-- 校內外證照 -->
             <section>
                 <h2>證照</h2>
                 <ul>
@@ -256,15 +256,7 @@ git```html
         </main>
     </div>
 
-    <button class="print-btn" onclick="window.print()">🖨️ 列印 / 另存PDF</button>
+    <button class="print-btn" onclick="window.print()">列印 / 存成PDF</button>
 
-    <script>
-        // 簡單的載入動畫
-        window.addEventListener('load', () => {
-            document.querySelector('.container').style.opacity = 1;
-        });
-    </script>
 </body>
 </html>
-```
-
